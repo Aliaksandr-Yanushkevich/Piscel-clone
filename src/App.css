@@ -58,13 +58,15 @@ button, .choosenColor {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 100%;
 	height: 70px;
 	background-color: rgb(48%, 12%, 64%);
 	box-shadow: 0 5px 5px 0 rgb(73%, 41%, 78%);
 }
 
 .humburger_btn {
-	display: inline-flex;
+	display: flex;
+	flex-basis: 35%;
 	align-items: center;
 }
 
@@ -122,7 +124,12 @@ button, .choosenColor {
 	transform-origin: right top;
 }
 
-/* Menu button left */
+/* Menu Google button */
+.google-btn {
+	display: flex;
+	justify-content: center;
+	flex-basis: 20%;
+}
 .react-google-oauth-button-logout {
 	margin: 0 15px;
 	border-radius: 10px !important;
@@ -136,6 +143,29 @@ button, .choosenColor {
 .react-google-oauth-button-iconWrapper {
 	border-top-left-radius: 10px !important;
 	border-bottom-left-radius: 10px !important;
+}
+
+.google-account-data {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-basis: 45%;
+	flex-direction: row;
+}
+
+.google-account-data h1 {
+	margin: 0 20px;
+	color: rgb(100%, 100%, 100%);
+}
+
+.google-account-data figure {
+	margin: 0;
+}
+
+.user-foto {
+	width: 50px;
+	height: 50px;
+	margin-left: auto;
 }
 
 /* canvas_palette_colors */

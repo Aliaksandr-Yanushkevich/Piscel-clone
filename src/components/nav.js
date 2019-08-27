@@ -3,7 +3,9 @@ import { GoogleAPI, GoogleLogin, GoogleLogout } from 'react-google-oauth'
 
 
 const Nav = () => {
-	const [isUserLogin, setIsUserLogin] = useState(true);
+	const [isUserLogin, setIsUserLogin] = useState(false);
+	const [userNickName, setUserNickName] = useState('');
+	const [userFoto, setUserFoto] = useState('');
 
 	const handleSignIn = (boolean) => {
 		setIsUserLogin(boolean);
@@ -17,8 +19,8 @@ const Nav = () => {
     const profile = googleUser.getBasicProfile();
     const name = profile.getName();
     const image = profile.getImageUrl();
-    console.log(' Name:', name);
-    console.log('Image', image);
+		setUserNickName(name);
+		setUserFoto(image);
 	}
 
 	return (
@@ -32,8 +34,12 @@ const Nav = () => {
 				</a>
 				<h1 id='header'>Piskel-clone</h1>
 			</div>
-			{!isUserLogin && <div><GoogleLogin onLoginSuccess={ getGoogleUserData } /></div>}
-			{isUserLogin && <div><GoogleLogout /></div>}
+			<div className='google-account-data'>
+				{isUserLogin && <h1>{ userNickName }</h1>}
+				{isUserLogin && <figure><img className='user-foto' src={ userFoto } alt="" /></figure>}
+			</div>
+			{!isUserLogin && <div className='google-btn'><GoogleLogin onLoginSuccess={ getGoogleUserData } /></div>}
+			{isUserLogin && <div className='google-btn'><GoogleLogout /></div>}
 		</nav>
 		</GoogleAPI>
 	);
