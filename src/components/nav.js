@@ -8,6 +8,7 @@ const Nav = () => {
 	const [userFoto, setUserFoto] = useState('');
 
 	const handleSignIn = (boolean) => {
+		console.log(boolean);
 		setIsUserLogin(boolean);
 	};
 	const handleSignFail = (error) => {
@@ -35,7 +36,7 @@ const Nav = () => {
 				<h1 id='header'>Piskel-clone</h1>
 			</div>
 			<div className='google-account-data'>
-				{isUserLogin && <h1>{ userNickName }</h1>}
+				{isUserLogin && <h2>{ userNickName }</h2>}
 				{isUserLogin && <figure><img className='user-foto' src={ userFoto } alt="" /></figure>}
 			</div>
 			{!isUserLogin && <div className='google-btn'><GoogleLogin onLoginSuccess={ getGoogleUserData } /></div>}
